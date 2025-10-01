@@ -9,6 +9,11 @@ private:
 	double _num2;
 
 public:
+	void set_num(double num1, double num2) 
+	{ 
+		_num1 = num1;
+		_num2 = num2;
+	}
 
 	double add() { return _num1 + _num2; }
 
@@ -51,28 +56,53 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+	std::string Approval;
 	double num1;
 	double num2;
-
-	std::cout << "Введите num1: ";
-	std::cin >> num1;
-	std::cout << "Введите num2: ";
-	std::cin >> num2;
-
-	if (num1 == 0 || num2 == 0)
+	do 
 	{
-		std::cout << "Oшибка: Значения не должны быть равны 0!" << std::endl;
-		return 1;
-	}
+		do
+		{
+			std::cout << "Введите num1: ";
+			std::cin >> num1;
 
-	Calculator calculations = { num1, num2 };
+			if (num1 <= 0)
+			{
+				std::cout << "Oшибка: Значение не должно быть равно или меньше 0!" << std::endl;
+			}
+		} while (num1 <= 0);
 
-	std::cout << "Сложение: " << calculations.add() << std::endl;
-	std::cout << "Вычитание (_num1 - _num2): " << calculations.subtract_1_2() << std::endl;
-	std::cout << "Вычитание (_num2 - _num1): " << calculations.subtract_2_1() << std::endl;
-	std::cout << "Умножение: " << calculations.multiply() << std::endl;
-	std::cout << "Деление (_num1 / _num2): " << calculations.divide_1_2() << std::endl;
-	std::cout << "Деление (_num2 / _num1): " << calculations.divide_2_1() << std::endl;
+		do
+		{
+			std::cout << "Введите num2: ";
+			std::cin >> num2;
+
+			if (num2 <= 0)
+			{
+				std::cout << "Oшибка: Значение не должно быть равно или меньше 0!" << std::endl;
+			}
+		} while (num2 <= 0);
+
+		
+			Calculator calculations;
+			calculations.set_num(num1, num2);
+
+			std::cout << "num1 + num2 = " << calculations.add() << std::endl;
+			std::cout << "num1 - num2 = " << calculations.subtract_1_2() << std::endl;
+			std::cout << "num2 - num1 = " << calculations.subtract_2_1() << std::endl;
+			std::cout << "num1 * num2 = " << calculations.multiply() << std::endl;
+			std::cout << "num1 / num2 = " << calculations.divide_1_2() << std::endl;
+			std::cout << "num2 / num1 = " << calculations.divide_2_1() << std::endl;
+
+
+			std::cout << "Закончить операцию?";
+			std::cin >> Approval;
+
+	
+
+	} while (Approval != "да");
+
+		std::cout << "Операция завершилась!" << std::endl;
 
 	return EXIT_SUCCESS;
 }
