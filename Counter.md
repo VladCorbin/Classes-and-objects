@@ -9,13 +9,13 @@ private:
 
 public:
 
-	void set_num(int num) { _num = num; }
+	Counter(int num = 1) : _num(num) {}
 
-	int add() { return ++_num; }
+	void add() { ++_num; }
 
-	int subtract() { return --_num; }
+	void subtract() { --_num; }
 
-	int ger_num() { return _num; }
+	int get_num() { return _num; }
 };
 
 
@@ -32,21 +32,16 @@ int main()
 	std::cin >> Approval;
 	std::cout << std::endl;
 
-	Counter counter;
+    int initial_value = 1; 
 
 	if (Approval == "да")
 	{
-		int num;
 		std::cout << "Введите начальное значение счётчика: ";
-		std::cin >> num;
+		std::cin >> initial_value;
 		std::cout << std::endl;
-
-		counter.set_num(num);
 	}
-	else if (Approval == "нет")
-	{
-		counter.set_num(1);
-	}
+	
+	Counter counter(initial_value);
 
 	do
 	{
@@ -80,12 +75,10 @@ int main()
 	if (command == "x")
 	{
 		std::cout << "До свидания!" << std::endl;
-		return 1;
 	}	
 	else 
 	{
 		std::cout << "Не понял ваш ответ, попробуйте заново." << std::endl;
-		return 1;
 	}
 
 
