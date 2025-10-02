@@ -9,11 +9,17 @@ private:
 	double _num2;
 
 public:
-	void set_num(double num1, double num2) 
-	{ 
-		_num1 = num1;
-		_num2 = num2;
-	}
+	bool set_num(double num1, double num2) 
+	{
+        if (num1 == 0 && num2 == 0) 
+		{
+            std::cout << "Ошибка: оба числа не могут быть равны нулю!" << std::endl;
+            return false;
+        }
+        _num1 = num1;
+        _num2 = num2;
+        return true;
+    }
 
 	double add() { return _num1 + _num2; }
 
@@ -23,9 +29,24 @@ public:
 
 	double subtract_2_1() { return _num2 - _num1; }
 
-	double divide_1_2() { return _num1 / _num2; }
+	double divide_1_2() 
+	{ 
+		if (_num2 == 0) {
+            std::cout << "Ошибка: деление на ноль!" << std::endl;
+            return 0;
+        }
+		return _num1 / _num2; 
+	}
 
-	double divide_2_1() { return _num2 / _num1; }
+	double divide_2_1() 
+	{ 
+		if (_num1 == 0) 
+		{
+            std::cout << "Ошибка: деление на ноль!" << std::endl;
+            return 0;
+        }
+		return _num2 / _num1; 
+	}
 
 	bool set_num1(double new_num1)
 	{
@@ -66,22 +87,22 @@ int main()
 			std::cout << "Введите num1: ";
 			std::cin >> num1;
 
-			if (num1 <= 0)
+			if (num1 == 0) 
 			{
-				std::cout << "Oшибка: Значение не должно быть равно или меньше 0!" << std::endl;
-			}
-		} while (num1 <= 0);
+                std::cout << "Ошибка: значение не должно быть равно нулю!" << std::endl;
+            }
+		} while (num1 == 0);
 
 		do
 		{
 			std::cout << "Введите num2: ";
 			std::cin >> num2;
 
-			if (num2 <= 0)
+			if (num2 == 0) 
 			{
-				std::cout << "Oшибка: Значение не должно быть равно или меньше 0!" << std::endl;
-			}
-		} while (num2 <= 0);
+                std::cout << "Ошибка: значение не должно быть равно нулю!" << std::endl;
+            }
+		} while (num2 == 0);
 
 		
 			Calculator calculations;
