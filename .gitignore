@@ -1,17 +1,39 @@
-# Игнорировать временные файлы
-*.tmp
-*.user
-
-# Игнорировать файлы сборки
-bin/
-obj/
-
-# Игнорировать файлы отладки
+# Компиляционные файлы
+*.obj
+*.exe
+*.dll
+*.lib
 *.pdb
+*.ilk
+*.manifest
+*.exp
 
-# Игнорировать файлы конфигурации
+# Временные файлы
 *.suo
 *.user
+*.userosscache
+*.sln.docstates
 
-# Игнорировать файлы IDE
+# Отладочные файлы
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+# Visual Studio
 .vs/
+Debug/
+Release/
+x64/
+
+# Файлы автосохранения
+*~
+*.swp
+*.swo
+*.tmp
+
+# Файлы с данными проекта
+*.vcxproj.filters
+*.vcxproj.user
