@@ -68,7 +68,7 @@ int main()
 
 		if (command == "=")
 		{
-			std::cout << counter.ger_num() << std::endl;
+			std::cout << counter.get_num() << std::endl;
 		}
 	} while (command != "x");
 
@@ -76,11 +76,6 @@ int main()
 	{
 		std::cout << "До свидания!" << std::endl;
 	}	
-	else 
-	{
-		std::cout << "Не понял ваш ответ, попробуйте заново." << std::endl;
-	}
-
 
 	return EXIT_SUCCESS;
 }
